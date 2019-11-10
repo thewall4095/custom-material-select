@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-select-panel{
+    overflow: hidden;
+    height: 100%;
+}
+
+.myPanelClass{
+    margin-top: 2rem !important;
+}
+
+.mat-select-panel{
+    .mat-option {
+        font-size: inherit !important;
+        line-height: 40px !important;
+        height: 40px !important;
+    }
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0;
+    line-height: 40px;
+}
+.mat-form-field-infix {
+    padding: 0;
+    border-top: none; 
+}
+.mat-form-field-appearance-outline{ .mat-select-arrow-wrapper {
+    transform: translateY(0%) !important;
+}
+}
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+    background: black;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #3f51b5;
+    font-weight: bold;
+}
+
+.mat-checkbox-checked.mat-primary .mat-checkbox-background, .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background {
+    background: black;
+}

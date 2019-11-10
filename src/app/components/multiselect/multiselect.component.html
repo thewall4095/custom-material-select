@@ -1,0 +1,47 @@
+<mat-form-field appearance="{{ appearance }}">
+  <mat-select
+    #selectElem
+    [placeholder]="placeholder"
+    [formControl]="formControl"
+    [multiple]="multiple"
+    [(ngModel)]="selectedValue"
+    (selectionChange)="onSelectionChange($event)"
+    disableOptionCentering panelClass="myPanelClass"
+  >
+    <div class="box-search">
+      <mat-checkbox
+        *ngIf="multiple"
+        color="primary"
+        class="box-select-all"
+        [(ngModel)]="selectAllChecked"
+        (change)="toggleSelectAll($event)"
+      ></mat-checkbox>
+      <input
+        #searchInput
+        type="text"
+        [ngClass]="{ 'pl-1': !multiple }"
+        (input)="filterItem(searchInput.value)"
+        [placeholder]="selectPlaceholder"
+      />
+    </div>
+    <mat-select-trigger>
+      {{ onDisplayString() }}
+    </mat-select-trigger>
+    <div class="options">
+        <mat-option
+        *ngFor="let option of options; trackBy: trackByFn"
+        [disabled]="option.disabled"
+        [value]="isInputArray ? option : option[value]"
+        [style.display]="hideOption(option) ? 'none' : 'flex'"
+        >{{ isInputArray ? option : option[display] }}
+      </mat-option>
+    </div>
+
+
+    <div class="clear-submit">
+      <button mat-button (click)="clear()">Clear</button> 
+      <button mat-button class="submit-button" (click)="submit()">Submit</button>
+    </div>
+  </mat-select>
+  <mat-hint style="color:red" *ngIf="showErrorMsg">{{ errorMsg }}</mat-hint>
+</mat-form-field>
